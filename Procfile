@@ -1,1 +1,1 @@
-bot: puby main.rb
+bot: ruby main.rb
