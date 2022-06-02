@@ -94,12 +94,14 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
 
 		when 'Америки'
     		count = count + 1
+    		kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
 			bot.api.send_message(chat_id: message.chat.id, text: "Вірно")
-			bot.api.send_message(chat_id: message.chat.id, text: "На цьому все, ви відповіли на #{count} питань з 5")
+			bot.api.send_message(chat_id: message.chat.id, text: "На цьому все, ви відповіли на #{count} питань з 5", reply_markup: kb)
 
 		when 'Азії', 'Європи','Африки'
+			kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
     		bot.api.send_message(chat_id: message.chat.id, text: "Не вірно")
-    		bot.api.send_message(chat_id: message.chat.id, text: "На цьому все, ви відповіли на #{count} питань з 5")
+    		bot.api.send_message(chat_id: message.chat.id, text: "На цьому все, ви відповіли на #{count} питань з 5", reply_markup: kb)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   		
 
